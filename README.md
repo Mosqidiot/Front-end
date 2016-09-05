@@ -1,4 +1,3 @@
-###2016/08/29 
 ####01 Use `last-of-type` to set the last type of this element.
 
 ```css
@@ -14,7 +13,6 @@
 		width: calc(100%-20px); /* Will not!*/
 	}
 ```
-###2016/09/01
 ####03 Use unit `vh` and `vw` to set length and width of elements into the scale of percentage of viewport
 
 ```css
@@ -36,3 +34,30 @@ for (key in myObj){
     }
 }
 ```
+####05 Load JQuery
+```html
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+```  
+####06 filter funtion
+```js
+$( "li" )
+  .filter(function( index ) {
+    return $( "strong", this ).length === 1;
+  })
+    .css( "background-color", "red" );\
+```
+This code will alter the first list item only, as it contains exactly one \<strong> tag. Within the filter function, this refers to each DOM element in turn. The parameter passed to the function tells us the index of that DOM element within the set matched by the jQuery object.
+
+####07 addclass() functioon can change DOM elemmnets' class attribute
+####08 togggleClass() add class tag when the DOM does not have that class tag. Otherwise remove it.
+####09 attr() TWO ways to call it (similar with css() method)<li> .attr( attributeName, value ) <li> .attr( attributeName ) 
+Notes: attr('style', 'prop:val') replaces the entire inline style. css()
+just replaces that property.
+
+####10 remove() call this.remove() removes this; call this.remove(".selecter") remove all the selecter tag witin this 
+
+####11 modify the content of html
+<li>.append()
+<li>.prepend()
+<li>.insertBefore()
+<li>.insertAfter() (put selector in the back toooo wired....use after() instead)
