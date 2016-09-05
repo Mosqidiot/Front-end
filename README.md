@@ -61,3 +61,6 @@ just replaces that property.
 <li>.prepend()
 <li>.insertBefore()
 <li>.insertAfter() (put selector in the back toooo wired....use after() instead)
+####12 on() method to set up the event listener
+```js
+on("String",function(callback){});
