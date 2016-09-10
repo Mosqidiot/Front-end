@@ -64,3 +64,24 @@ just replaces that property.
 ####12 on() method to set up the event listener
 ```js
 on("String",function(callback){});
+```
+####13 event
+<li>event.keyCode to learn what key was pressed - invaluable if you need to listen for a specific key
+<li>event.pageX and event.pageY to know where on the page the click occurred - helpful for analytics tracking
+<li>event.type to find what event happened - useful if listening to a target for multiple events
+<li> event.target
+
+####14 .keypress() is the shortcut for on("target",callback)
+<li>keyup
+	<li>mouseover
+	<li>change
+	<li>click
+	<li>hover is special it is a chortcut for
+	
+```js
+	$( selector ).mouseenter( handlerIn ).mouseleave( handlerOut );
+```
+####15 foreign language display 
+```html
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+```
