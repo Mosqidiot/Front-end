@@ -85,3 +85,81 @@ on("String",function(callback){});
 ```html
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 ```
+
+####16 google map image API
+```js
+$body.append('<img class="bgimg" src="http://maps.googleapis.com/maps/api/streetview?size=600x300&location='+$st.val()+', '+$city.val()+'">');
+```
+####17 New york times article API 
+```js
+$.getJSON("https://api.nytimes.com/svc/search/v2/articlesearch.json?q='"+$city.val()+"'&sort=newest&api-key=ec3224643f234d9984ac5d32ba2c0399", function(data){
+    // console.log("https://api.nytimesssss.com/svc/search/v2/articlesearch.json?q="+$city.val()+"&api-key=ec3224643f234d9984ac5d32ba2c0399");
+        var article = data.response.docs;
+        // console.log(article);
+        article.forEach(function(entry){
+            $nyList.append('<li class = "article">'+
+                '<a href = "'+ entry.web_url+'">'+entry.headline.main+'</a>'+
+                '<p>'+ entry.lead_paragraph+'</p></li>');
+        });
+    }).fail(function(e){
+        $nytHeaderElem.text("BAD request for New York times articles");
+    }
+    );
+```
+####18 use `jason p` when cross source API (JSONP shells the response in a function)
+####19 jasonp does not support error handlind so use a time-out function to shoot the failure 
+```js
+setTimeout(function(){}, 8000/*time*/)
+```
+and then add 
+
+```js
+clearTimeout(function);
+```
+function to stop the timeout in your code 
+######OR 
+use this chained function to handle the error 
+
+```js
+$.ajax({
+   //stuff
+}).done(function(){
+   //do math
+});
+```
+####20 200 means OK
+
+####21 defining function to make the iterator i a local variable insode the each iteration closure instide a global variable Use `let `
+```js
+var cats = [{"name":"Tom"},{"name":"Lorry"}];
+
+var click = [];
+
+
+for(let i = 1; i<= cats.length;i++){
+    $("#name"+i).text(cats[i-1].name);
+    click.push(0);
+    $("#cat"+i).click(function(){
+        console.log(i);
+        click[i-1]++;
+        $("#counts"+i).text("You clicked cat for "+ click[i-1] + " times");});
+}
+```
+####22 use scope to capture iterating variables
+The num variable changes, so we have to somehow connect it to our event listener function. Here's one way of doing it. First take a look at this code, then I'll explain how it works.
+
+```js
+
+elem.addEventListener('click', (function(numCopy) {
+    return function() {
+        alert(numCopy)
+    };
+})(num));
+```
+The bolded part is the outer function. We immediately invoke it by wrapping it in parentheses and calling it right away, passing in num. This method of wrapping an anonymous function in parentheses and calling it right away is called an IIFE (Immediately-Invoked Function Expression, pronounced like "iffy"). This is where the "magical" part happens.
+
+We're passing the value of num into our outer function. Inside that outer function, the value is known as numCopy -- aptly named, since it's a copy of num in that instant. Now it doesn't matter that num changes later down the line. We stored the value of num in numCopy inside our outer function.
+
+####23 JQuery function `hide()` and `show()` to set display to none ; to display;
+
+####24 MVC (model view contrilor) MVP (model view presenter)
