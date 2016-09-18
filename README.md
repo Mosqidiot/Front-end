@@ -162,4 +162,17 @@ We're passing the value of num into our outer function. Inside that outer functi
 
 ####23 JQuery function `hide()` and `show()` to set display to none ; to display;
 
-####24 MVC (model view contrilor) MVP (model view presenter)
+####24 MVC (model view controlor) MVP (model view presenter)
+model: capture the data 
+view: user interface
+
+####25 Basic knowledge of JQuery
+
+```js 
+$(function(){...})
+``` 
+is a shortcut for
+
+```js
+$(document).ready(function(){...});
+```
